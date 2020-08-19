@@ -95,14 +95,14 @@ namespace HelloWorld
             input = Console.ReadKey().KeyChar;
             if(input == '1')
             {
-                Console.WriteLine("You head inside only to find that the house is completely normal, but you do notice that your father's weapon and armor is missing.");
+                Console.WriteLine("\nYou head inside only to find that the house is completely normal, but you do notice that your father's weapon and armor is missing.");
                 Console.WriteLine("You immedentially rush into the forest thinking something terrible has happened.");
             }
             else if(input == '2')
             {
-                Console.WriteLine("You begin walking into the forest looking for any signs of your parents.");
+                Console.WriteLine("\nYou begin walking into the forest looking for any signs of your parents.");
             }
-            Console.WriteLine("You continue on walking until you notice slash marks on a few trees.");
+            Console.WriteLine("You continue on into the forest until you notice slash marks on a few trees.");
         }
     }
 }
