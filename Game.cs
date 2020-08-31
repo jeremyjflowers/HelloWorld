@@ -218,11 +218,13 @@ namespace HelloWorld
                     Console.WriteLine("\nYou attack with a training weapon. You dealt " + damage + " points of damage.");
                     playerHealth -= enemyDamage;
                     Console.WriteLine("\nYour enemy attacks you with a training sword. You recieved " + enemyDamage + " points of damage.");
+                    Console.ReadLine();
                 }
                 if (input == '2')
                 {
                     playerHealth -= enemyDamage - 20;
                     Console.WriteLine("\nYour enemy attacks you with a training sword, but you braced yourself. You recieved " + enemyDamage + " points of damage.");
+                    Console.ReadLine();
                 }
                 if (input == '3')
                 {
@@ -230,6 +232,7 @@ namespace HelloWorld
                     Console.WriteLine("\nYou attack using a magic spell. You dealt " + damage + " points of damage.");
                     playerHealth -= enemyDamage;
                     Console.WriteLine("\nYour enemy attacks you with a training sword. You recieved " + enemyDamage + " points of damage.");
+                    Console.ReadLine();
                 }
             }
             Console.Clear();
