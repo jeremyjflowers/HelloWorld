@@ -76,14 +76,14 @@ namespace HelloWorld
                     role = "Knight";
                     Console.WriteLine("\nYou chose to follow in your father's footsteps in order to protect your kingdom.");
                 }
-                if (input == '2')
+                else if (input == '2')
                 {
                     playerHealth = 150;
                     mana = 200;
                     role = "Mage";
                     Console.WriteLine("\nYou chose to dive deep within the knowledge of the arcane arts.");
                 }
-                if (input == '3')
+                else if (input == '3')
                 {
                     playerHealth = 150;
                     damage = 10;
@@ -91,7 +91,7 @@ namespace HelloWorld
                     role = "Preist";
                     Console.WriteLine("\nYou chose to follow in your mother's footsteps and devote your time in service of others.");
                 }
-                if (input == '4')
+                else if (input == '4')
                 {
                     playerHealth = 150;
                     damage = 10;
