@@ -16,7 +16,11 @@ namespace HelloWorld
             Console.WriteLine("Player Level: " + level);
             Console.WriteLine("Player Role: " + role);
             Console.WriteLine("Press any key to continue.");
-            Console.ReadLine();
+        }
+        void enemyPrintStats(int enemyHealth, int enemyDamage)
+        {
+            Console.WriteLine("\nEnemy Health: " + enemyHealth);
+            Console.WriteLine("Enemy Damage: " + enemyDamage);
         }
         public void Run()
         {
@@ -72,14 +76,14 @@ namespace HelloWorld
                     role = "Knight";
                     Console.WriteLine("\nYou chose to follow in your father's footsteps in order to protect your kingdom.");
                 }
-                else if (input == '2')
+                if (input == '2')
                 {
                     playerHealth = 150;
                     mana = 200;
                     role = "Mage";
                     Console.WriteLine("\nYou chose to dive deep within the knowledge of the arcane arts.");
                 }
-                else if (input == '3')
+                if (input == '3')
                 {
                     playerHealth = 150;
                     damage = 10;
@@ -87,7 +91,7 @@ namespace HelloWorld
                     role = "Preist";
                     Console.WriteLine("\nYou chose to follow in your mother's footsteps and devote your time in service of others.");
                 }
-                else if (input == '4')
+                if (input == '4')
                 {
                     playerHealth = 150;
                     damage = 10;
@@ -107,6 +111,7 @@ namespace HelloWorld
             }
             //Prints player's stats
             PrintStats(name, playerHealth, damage, mana, level, role);
+            Console.ReadLine();
             Console.Clear();
 
             Console.WriteLine("Your grandfather has called for an audience with you. He demands that it's urgent.");
@@ -170,6 +175,7 @@ namespace HelloWorld
             int levelup = level += 1;
             Console.WriteLine("\nLEVEL UP!!! You are now level " + levelup + " !");
             PrintStats(name, playerHealth, damage, mana, level, role);
+            Console.ReadLine();
             Console.Clear();
 
             //Minor decision
@@ -189,54 +195,44 @@ namespace HelloWorld
             }
             //First battle scene
             Console.WriteLine("You and your father both assume battle stances and begin sparring");
-            int fatherHealth = 250;
-            int fatherDamage = 50;
-            while (playerHealth > 0 && fatherHealth > 0)
+            int enemyHealth = 250;
+            int enemyDamage = 50;
+            while (playerHealth > 0 && enemyHealth > 0)
             {
                 //Displays battle stats
                 //Player stats
-                Console.WriteLine("\nPlayer Name: " + name);
-                Console.WriteLine("Player Health: " + playerHealth);
-                Console.WriteLine("Player Damage: " + damage);
-                Console.WriteLine("Player Mana: " + mana);
-                Console.WriteLine("Player Level: " + level);
-                Console.WriteLine("Player Role: " + role);
+                PrintStats(name, playerHealth, damage, mana, level, role);
 
                 //Enemy stats
-                Console.WriteLine("\nFather Health: " + fatherHealth);
-                Console.WriteLine("Father Damage: " + fatherDamage);
-                Console.WriteLine("Father Level: 70");
-                Console.WriteLine("Father Role: Royal Guard");
+                enemyPrintStats(enemyHealth, enemyDamage);
+                Console.WriteLine("Enemy Level: 70");
+                Console.WriteLine("Enemy Role: Royal Guard");
+
                 Console.WriteLine("\nPress 1 for Attack");
                 Console.WriteLine("Press 2 for Defend");
                 Console.WriteLine("Press 3 for Magic");
                 input = Console.ReadKey().KeyChar;
                 if (input == '1')
                 {
-                    fatherHealth -= damage;
-                    Console.WriteLine("\nYou attack your father with a training weapon. You dealt " + damage + " points of damage.");
-                    playerHealth -= fatherDamage;
-                    Console.WriteLine("\nYour father attacks you with a training sword. You recieved " + fatherDamage + " points of damage.");
-                    Console.ReadLine();
-                    Console.Clear();
+                    enemyHealth -= damage;
+                    Console.WriteLine("\nYou attack with a training weapon. You dealt " + damage + " points of damage.");
+                    playerHealth -= enemyDamage;
+                    Console.WriteLine("\nYour enemy attacks you with a training sword. You recieved " + enemyDamage + " points of damage.");
                 }
-                else if (input == '2')
+                if (input == '2')
                 {
-                    playerHealth -= fatherDamage - 20;
-                    Console.WriteLine("\nYour father attacks you with a training sword, but you braced yourself. You recieved " + fatherDamage + " points of damage.");
-                    Console.ReadLine();
-                    Console.Clear();
+                    playerHealth -= enemyDamage - 20;
+                    Console.WriteLine("\nYour enemy attacks you with a training sword, but you braced yourself. You recieved " + enemyDamage + " points of damage.");
                 }
-                else if (input == '3')
+                if (input == '3')
                 {
-                    fatherHealth -= damage;
+                    enemyHealth -= damage;
                     Console.WriteLine("\nYou attack using a magic spell. You dealt " + damage + " points of damage.");
-                    playerHealth -= fatherDamage;
-                    Console.WriteLine("\nYour father attacks you with a training sword. You recieved " + fatherDamage + " points of damage.");
-                    Console.ReadLine();
-                    Console.Clear();
+                    playerHealth -= enemyDamage;
+                    Console.WriteLine("\nYour enemy attacks you with a training sword. You recieved " + enemyDamage + " points of damage.");
                 }
             }
+            Console.Clear();
             Console.WriteLine("\nHahahaha!!! You fight well, my child. But you can always improve yourself with a bit of training.");
             Console.WriteLine("You look at him a hearty grin despite your loss.");
             Console.WriteLine("Now, I have question for you.");
@@ -260,7 +256,7 @@ namespace HelloWorld
                 }
             }
             Console.WriteLine("You spend the next few moments with your father telling you stories of his glory days.");
-            Console.WriteLine("Your mother signals you two to come inside for supper. You both gather the equipment and head inside for supper.");
+            Console.WriteLine("Your mother signals you two to come inside for supper. You both gather the equipment and head inside.");
         }
     }
 }
